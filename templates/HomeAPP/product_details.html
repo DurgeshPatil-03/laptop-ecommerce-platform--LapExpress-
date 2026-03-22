@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+<title>Home Page</title>
+{% endblock %}
+
+{% block content %}
+
+{% load static %}
+
+<!-- ================= PRODUCT DETAIL ================= -->
+<section class="product-detail-section">
+    <div class="product-detail-container">
+
+        {% if laptop %}
+        <!-- Product Image -->
+        <div class="product-image">
+            <img src="{{ laptop.image.url }}" alt="Laptop">
+        </div>
+
+        <!-- Product Info -->
+        <div class="product-info">
+            
+            <h1>{{ laptop.brand }} {{ laptop.model }}</h1>
+
+            <p class="rating">⭐ {{ laptop.review }} | 1,240 Reviews</p>
+
+            <p class="price">₹{{ laptop.price }}</p>
+
+            <p class="availability">✔ In Stock</p>
+
+            <p class="description">
+                {{ laptop.description }}
+            </p>
+
+            <!-- Specs -->
+            <ul class="specs">
+                <li><strong>Processor:</strong> {{ laptop.processor }}</li>
+                <li><strong>RAM:</strong> {{ laptop.ram }}GB DDR4</li>
+                <li><strong>Storage:</strong> {{ laptop.rom }}GB SSD</li>
+                <li><strong>Display:</strong> {{ laptop.display }}" Full HD</li>
+                <li><strong>Graphics:</strong> {{ laptop.graphics }}</li>
+                <li><strong>OS:</strong> {{ laptop.os }}</li>
+            </ul>
+
+            <!-- Buttons -->
+            <div class="product-actions">
+                <a href="{% url 'add_cart' laptop.id %}">
+                    <button class="btn-cart">Add to Cart</button>
+                </a>
+                
+                <button class="btn-buy">Buy Now</button>
+            </div>
+        {% endif %}
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

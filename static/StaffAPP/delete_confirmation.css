@@ -1,0 +1,65 @@
+/* ================= DELETE CONFIRM ================= */
+.delete-section {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.delete-card {
+    background: white;
+    padding: 35px;
+    border-radius: 12px;
+    max-width: 700px;
+    width: 100%;
+    text-align: center;
+}
+
+.delete-card h2 {
+    color: #dc2626;
+    margin-bottom: 10px;
+}
+
+.delete-card p {
+    color: #6b7280;
+    margin-bottom: 25px;
+}
+
+/* ================= PRODUCT PREVIEW ================= */
+.product-preview {
+    display: flex;
+    gap: 25px;
+    text-align: left;
+    margin-bottom: 30px;
+    align-items: center;
+}
+
+.product-preview img {
+    width: 140px;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+}
+
+.product-info p {
+    margin-bottom: 6px;
+}
+
+/* ================= ACTIONS ================= */
+.delete-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.delete-btn {
+    background: #dc2626;
+    color: white;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background: #b91c1c;
+}

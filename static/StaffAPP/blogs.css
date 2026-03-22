@@ -1,0 +1,19 @@
+
+
+/* ================= ACTION BAR ================= */
+.action-bar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+/* ================= STATUS ================= */
+.status.success {
+    color: #16a34a;
+    font-weight: bold;
+}
+
+.status.pending {
+    color: #f59e0b;
+    font-weight: bold;
+}

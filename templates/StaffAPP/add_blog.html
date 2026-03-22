@@ -1,0 +1,81 @@
+{% extends 'StaffAPP/staff_dashboard.html' %}
+
+{% block title %}
+    <title>Blogs | LapExpress</title>
+{% endblock %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- ================= MAIN CONTENT ================= -->
+<main class="main-content">
+
+    <!-- Header -->
+    <header class="dashboard-header">
+        <h1>Add New Blog</h1>
+        <p>Create a new blog post for LapExpress</p>
+    </header>
+
+    <!-- ================= FORM SECTION ================= -->
+    <section class="form-section">
+
+        <form method="post" enctype="multipart/form-data" class="product-form">
+            {% csrf_token %}
+
+            <!-- Show validation errors -->
+            {% if form.errors %}
+                <div class="form-errors">
+                    {{ form.errors }}
+                </div>
+            {% endif %}
+
+            <!-- Blog Image -->
+            <div class="form-group full">
+                <label>Featured Image</label>
+                {{ form.image }}
+            </div>
+
+            <!-- Blog Title -->
+            <div class="form-group full">
+                <label>Blog Title</label>
+                {{ form.title }}
+            </div>
+
+            <!-- Short Description -->
+            <div class="form-group full">
+                <label>Short Description</label>
+                {{ form.short_description }}
+            </div>
+
+            <!-- Author -->
+            <div class="form-group">
+                <label>Author</label>
+                {{ form.author }}
+            </div>
+
+            <!-- Status -->
+            <div class="form-group">
+                <label>Status</label>
+                {{ form.status }}
+            </div>
+
+            <!-- Blog Content -->
+            <div class="form-group full">
+                <label>Blog Content</label>
+                <pre>{{ form.content }}</pre>
+            </div>
+
+            <!-- Buttons -->
+            <div class="form-actions">
+                <button type="submit" class="save-btn">Publish Blog</button>
+                <a href="{% url 'blogs' %}" class="cancel-btn">Cancel</a>
+            </div>
+
+        </form>
+
+    </section>
+
+</main>
+
+{% endblock %}

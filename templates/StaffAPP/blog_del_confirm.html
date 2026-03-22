@@ -1,0 +1,68 @@
+{% extends 'StaffAPP/staff_dashboard.html' %}
+
+{% block title %}
+    <title>Confirm Delete | LapExpress</title>
+{% endblock %}
+
+{% load static %}
+
+{% block content %}
+
+{% load static %}
+
+<!-- ================= MAIN CONTENT ================= -->
+<main class="main-content">
+
+    <!-- Header -->
+    <header class="dashboard-header">
+        <h1>Delete Blog</h1>
+        <p>Please confirm before deleting this blog post</p>
+    </header>
+
+    <!-- ================= CONFIRM CARD ================= -->
+    <section class="delete-section">
+
+        <div class="delete-card">
+
+            <h2>⚠ Are you sure?</h2>
+            <p>This action cannot be undone.</p>
+
+            <!-- Blog Preview -->
+            <div class="product-preview">
+
+                {% if blog.image %}
+                    <img src="{{ blog.image.url }}" alt="Blog Image">
+                {% endif %}
+
+                <div class="product-info">
+                    <p><strong>Title:</strong> {{ blog.title }}</p>
+                    <p><strong>Author:</strong> {{ blog.author }}</p>
+                    <p><strong>Status:</strong>
+                        {% if blog.status %}
+                            Published
+                        {% else %}
+                            Draft
+                        {% endif %}
+                    </p>
+                    <p><strong>Created On:</strong> {{ blog.created_at }}</p>
+                    <p><strong>Short Description:</strong></p>
+                    <p>{{ blog.short_description }}</p>
+                </div>
+
+            </div>
+
+            <!-- Actions -->
+            <a href="{% url 'delete_blog' blog.id%}">
+                <button type="submit" class="delete-btn">Yes, Delete</button>
+            </a>
+            <a href="{% url 'blogs' %}" class="cancel-btn">
+                Cancel
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+{% endblock %}

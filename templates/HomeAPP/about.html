@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>About Page</title>
+{% endblock %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- ================= ABOUT SECTION ================= -->
+<section class="about-section">
+    <div class="about-container">
+
+        <div class="about-content">
+            <h1>About LapExpress</h1>
+            <p class="tagline">Your trusted destination for modern laptops and reliable technology</p>
+
+            <hr>
+
+            <p>
+                LapExpress is a laptop-focused e-commerce platform built to simplify online laptop shopping.
+                The platform allows users to explore products, view detailed specifications, manage carts,
+                and place orders securely.
+            </p>
+
+            <p>
+                The application is developed using Django following MVT architecture, with a clean and
+                responsive user interface. Staff-restricted functionality enables authorized users to manage
+                products and content efficiently.
+            </p>
+
+            <div class="about-stats">
+                <div class="stat">
+                    <h3>50+</h3>
+                    <span>Products</span>
+                </div>
+                <div class="stat">
+                    <h3>100+</h3>
+                    <span>User Actions</span>
+                </div>
+                <div class="stat">
+                    <h3>100%</h3>
+                    <span>Responsive UI</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= IMAGE ================= -->
+        <div class="about-image">
+            <img src="{% static 'images/about.jpg' %}" alt="About LapExpress">
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

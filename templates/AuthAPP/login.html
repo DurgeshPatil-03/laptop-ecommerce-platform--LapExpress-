@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Login | LapExpress</title>
+
+    <!-- REQUIRED FOR RESPONSIVE -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'AuthAPP/login.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- ================= BRAND ================= -->
+<a class="logo-link" href="{% url 'home' %}">
+    <div class="logo">
+        <img class="logo-img" src="{% static 'images/mylogo.png' %}" alt="SiteLogo">
+        <div class="logo-name">Lap<span>Express</span></div>
+    </div>
+</a>
+
+<!-- ================= LOGIN ================= -->
+<div class="auth-container">
+    <div class="auth-card">
+
+        <h2>Login</h2>
+        <p class="subtitle">Access your LapExpress account</p>
+
+        <form method="post">
+            {% csrf_token %}
+
+            {% if messages %}
+                <div class="floating-alert-container">
+                    {% for msg in messages %}
+                        <div class="alert alert-{{ msg.tags }} alert-dismissible fade show text-center">
+                            {{ msg }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <label>Enter username*</label>
+            <input type="text" name="username" placeholder="Username or Email" required>
+
+            <label>Enter password*</label>
+            <input type="password" name="password" placeholder="Password" required>
+
+            <button class="submit" type="submit">Submit</button>
+        </form>
+
+        <div class="auth-links">
+            <a href="{% url 'forget' %}">Forgot password?</a>
+        </div>
+
+        <div class="divider">Or</div>
+
+        <p class="switch-auth">Don’t have an account?</p>
+
+        <a href="{% url 'register' %}">
+            <button class="register-button">Register</button>
+        </a>
+
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

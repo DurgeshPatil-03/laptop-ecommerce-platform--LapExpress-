@@ -1,0 +1,60 @@
+{% extends 'StaffAPP/staff_dashboard.html' %}
+
+{% block title %}
+    <title>Confirm Delete | LapExpress</title>
+{% endblock %}
+
+{% load static %}
+
+{% block content %}
+
+{% load static %}
+
+<!-- ================= MAIN CONTENT ================= -->
+<main class="main-content">
+
+    <!-- Header -->
+    <header class="dashboard-header">
+        <h1>Delete Product</h1>
+        <p>Please confirm before deleting this product</p>
+    </header>
+
+    <!-- ================= CONFIRM CARD ================= -->
+    <section class="delete-section">
+
+        <div class="delete-card">
+
+            <h2>⚠ Are you sure?</h2>
+            <p>This action cannot be undone.</p>
+
+            <!-- Product Preview -->
+            <div class="product-preview">
+
+                <img src="{{ product.image.url }}" alt="Product Image">
+
+                <div class="product-info">
+                    <p><strong>Brand:</strong> {{ product.brand }}</p>
+                    <p><strong>Model:</strong> {{ product.model }}</p>
+                    <p><strong>Price:</strong> ₹{{ product.price }}</p>
+                    <p><strong>Processor:</strong> {{ product.processor }}</p>
+                    <p><strong>RAM:</strong> {{ product.ram }} GB</p>
+                    <p><strong>Storage:</strong> {{ product.rom }} GB</p>
+                    <p><strong>Category:</strong> {{ product.category }}</p>
+                </div>
+
+            </div>
+
+            <!-- Actions -->
+            <a href="{% url 'delete_product' product.id %}">
+                <button type="submit" class="delete-btn">Yes, Delete</button>
+            </a>
+            <a href="{% url 'manage_products' %}" class="cancel-btn">
+                Cancel
+            </a>
+        </div>
+
+    </section>
+
+</main>
+
+{% endblock %}

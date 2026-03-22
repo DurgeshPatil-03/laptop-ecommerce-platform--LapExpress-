@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Cart Page</title>
+{% endblock %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- ================= CART ================= -->
+<section class="cart-section">
+    <div class="container">
+
+        <h1 class="page-title">Your Cart <h4>(Items {{items}})</h4></h1>
+
+        <hr>
+
+        <div class="cart-layout">
+
+            <!-- ================= PRODUCTS LIST ================= -->
+            <div class="cart-products">
+
+                {% for item in cart_items %}
+                <div class="cart-product-card cart-card">
+
+                    <img src="{{ item.product.image.url }}" alt="Laptop">
+
+                    <div class="product-info">
+                        <h3>{{ item.product.model }}</h3>
+                        <p>{{ item.product.processor }} • {{ item.product.ram }}GB RAM</p>
+                        <span class="price">₹{{ item.product.price }}</span>
+                    </div>
+
+                    <div class="cart-actions">
+                        <div class="quantity">
+                            <a href="{% url 'update_cart' item.id 'decrease' %}">
+                                <button>-</button>
+                            </a>
+                            <span>{{ item.quantity }}</span>
+                            <a href="{% url 'update_cart' item.id 'increase' %}">
+                                <button>+</button>
+                            </a>
+                        </div>
+
+                        <span class="item-total">₹{{ item.item_total }}</span>
+
+                        <a href="{% url 'remove_cart' item.id %}" class="remove-btn">
+                            <button class="remove-btn">Remove</button>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+
+                <!-- Repeat product-card for more items -->
+            </div>
+
+            <!-- ================= SUMMARY ================= -->
+            <div class="cart-summary">
+                <h2>Order Summary</h2>
+
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span>₹{{total_price}}</span>
+                </div>
+
+                <div class="summary-row">
+                    <span>Shipping</span>
+                    <span>{{delivery_charge}}</span>
+                </div>
+
+                <div class="summary-row">
+                    <span>Items</span>
+                    <span>{{items}}</span>
+                </div>
+
+                <hr>
+
+                <div class="summary-row total">
+                    <span>Total</span>
+                    <span>₹{{total}}</span>
+                </div>
+
+                <a href="#" class="checkout-btn">Proceed to Checkout</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}

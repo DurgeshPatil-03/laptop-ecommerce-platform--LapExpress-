@@ -1,0 +1,65 @@
+{% extends 'StaffAPP/staff_dashboard.html' %}
+
+{% block title %}
+    <title>Blogs | LapExpress</title>
+{% endblock %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- ================= MAIN CONTENT ================= -->
+<main class="main-content">
+
+    <!-- Header -->
+    <header class="dashboard-header">
+        <h1>Manage Blogs</h1>
+        <p>Create, edit and manage blog posts</p>
+    </header>
+
+    <!-- Action Bar -->
+    <div class="action-bar">
+        <a href="{% url 'add_blog' %}">
+            <button class="add-btn">+ Add New Blog</button>
+        </a>
+    </div>
+
+    <!-- Blogs Table -->
+    <section class="table-section">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Status</th>
+                    <th>Published On</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            {% for blog in blogs %}
+            <tbody>
+                <tr>
+                    <td>{{blog.id}}</td>
+                    <td>{{blog.title}}</td>
+                    <td>{{blog.author}}</td>
+                    <td class="status success">Published</td>
+                    <td>{{blog.created_at|date:"d M Y"}}</td>
+                    <td>
+                        <a href="{% url 'update_blog' blog.id %}">
+                            <button class="edit-btn">Edit</button>
+                        </a>
+                        <a href="{% url 'delete_blog_confirmation' blog.id %}">
+                            <button class="delete-btn">Delete</button>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+            {% endfor %}
+
+        </table>
+    </section>
+
+</main>
+{% endblock %}

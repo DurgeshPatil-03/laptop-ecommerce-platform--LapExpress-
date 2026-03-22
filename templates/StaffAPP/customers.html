@@ -1,0 +1,58 @@
+{% extends 'StaffAPP/staff_dashboard.html' %}
+
+{% block title %}
+    <title>Customers | LapExpress</title>
+{% endblock %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- ================= MAIN CONTENT ================= -->
+<main class="main-content">
+
+    <!-- Header -->
+    <header class="dashboard-header">
+        <h1>Customers</h1>
+        <p>Manage and view registered customers</p>
+    </header>
+
+    <!-- Customers Table -->
+    <section class="table-section">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Customer Name</th>
+                    <th>Email</th>
+                    <th>Orders</th>
+                    <th>Status</th>
+                    <th>Staff/User</th>
+                    <th>Joined On</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for customer in customers %}
+                <tr>
+                    <td>{{customer.id}}</td>
+                    <td>{{customer.username}}</td>
+                    <td>{{customer.email}}</td>
+                    <td>5</td>
+                    <td class="status success">Active</td>
+                    {% if customer.is_staff %}
+                    <td class="status success">Staff</td>
+                    {% else %}
+                    <td class="status success">User</td>
+                    {% endif %}
+                    <td><h6 class="fw-bold">{{customer.date_joined|date:"d M Y"}}</h6></td>
+                </tr>
+                {% endfor %}
+                
+            </tbody>
+        </table>
+    </section>
+
+</main>
+
+{% endblock %}

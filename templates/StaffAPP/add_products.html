@@ -1,0 +1,136 @@
+{% extends 'StaffAPP/staff_dashboard.html' %}
+
+{% block title %}
+    <title>Manage Products | LapExpress</title>
+{% endblock %}
+
+{% load static %}
+
+{% block content %}
+<!-- ================= MAIN CONTENT ================= -->
+<main class="main-content">
+
+    <!-- Header -->
+    <header class="dashboard-header">
+        <h1>Add New Product</h1>
+        <p>Fill all product details carefully</p>
+    </header>
+
+    <!-- ================= FORM SECTION ================= -->
+    <section class="form-section">
+
+        <form method="post" enctype="multipart/form-data" class="product-form">
+            {% csrf_token %}
+
+            <!-- Show errors -->
+            {% if form.errors %}
+                <div class="form-errors">
+                    {{ form.errors }}
+                </div>
+            {% endif %}
+
+            <!-- Image -->
+            <div class="form-group">
+                <label>Product Image</label>
+                {{ form.image }}
+            </div>
+
+            <!-- Brand -->
+            <div class="form-group">
+                <label>Brand</label>
+                {{ form.brand }}
+            </div>
+
+            <!-- Model -->
+            <div class="form-group">
+                <label>Model</label>
+                {{ form.model }}
+            </div>
+
+            <!-- Price -->
+            <div class="form-group">
+                <label>Price (₹)</label>
+                {{ form.price }}
+            </div>
+
+            <!-- Processor -->
+            <div class="form-group">
+                <label>Processor</label>
+                {{ form.processor }}
+            </div>
+
+            <!-- RAM -->
+            <div class="form-group">
+                <label>RAM (GB)</label>
+                {{ form.ram }}
+            </div>
+
+            <!-- ROM -->
+            <div class="form-group">
+                <label>Storage (GB)</label>
+                {{ form.rom }}
+            </div>
+
+            <!-- Display -->
+            <div class="form-group">
+                <label>Display (Inches)</label>
+                {{ form.display }}
+            </div>
+
+            <!-- Graphics -->
+            <div class="form-group">
+                <label>Graphics</label>
+                {{ form.graphics }}
+            </div>
+
+            <!-- OS -->
+            <div class="form-group">
+                <label>Operating System</label>
+                {{ form.os }}
+            </div>
+
+            <!-- Review -->
+            <div class="form-group">
+                <label>Review</label>
+                {{ form.review }}
+            </div>
+
+            <!-- Quantity -->
+            <div class="form-group">
+                <label>Quantity</label>
+                {{ form.quentity }}
+            </div>
+
+            <!-- Category -->
+            <div class="form-group">
+                <label>Category</label>
+                {{ form.category }}
+            </div>
+
+            <!-- Status -->
+            <div class="form-group">
+                <label>Status</label>
+                <div class="checkbox-group">
+                    {{ form.status }} <span>Available</span>
+                </div>
+            </div>
+
+            <!-- Description -->
+            <div class="form-group full">
+                <label>Description</label>
+                {{ form.description }}
+            </div>
+
+            <!-- Buttons -->
+            <div class="form-actions">
+                <button type="submit" class="save-btn">Save Product</button>
+                <a href="{% url 'manage_products' %}" class="cancel-btn">Cancel</a>
+            </div>
+
+        </form>
+
+    </section>
+
+</main>
+
+{% endblock %}

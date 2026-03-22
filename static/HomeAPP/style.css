@@ -1,0 +1,169 @@
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* ================= HERO SECTION ================= */
+.hero {
+    background-image: url("../images/background.png");
+    background-color: white;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 500px;
+}
+
+.hero-content {
+    max-width: 1200px;
+    margin: auto;
+    padding: 120px 20px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    color: white;
+}
+
+.hero-text {
+    max-width: 520px;
+}
+
+.hero-text h1 {
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.hero-text p {
+    margin: 20px 0;
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+/* BUTTON */
+.btn {
+    background: orange;
+    border: none;
+    padding: 12px 26px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.btn:hover {
+    background: #ea580c;
+}
+
+/* IMAGE */
+.hero-image img {
+    width: 500px;
+    max-width: 100%;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(0); }
+}
+
+/* ================= OFFERS ================= */
+.offers {
+    max-width: 100%;
+    background: #f9fafb;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20px;
+    padding: 40px 20px;
+}
+
+.offer-card {
+    flex: 1;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.3s ease;
+    gap: 20px;
+}
+
+.offer-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.offer-text small {
+    color: #6b7280;
+    font-weight: bold;
+}
+
+.offer-text h3 {
+    margin: 10px 0;
+}
+
+.offer-text a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.offer-card img {
+    width: 260px;
+    max-width: 100%;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Tablet */
+@media (max-width: 992px) {
+
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+        padding: 100px 20px 50px;
+    }
+
+    .hero-text {
+        max-width: 100%;
+    }
+
+    .hero-image img {
+        width: 380px;
+    }
+
+    .offers {
+        flex-direction: column;
+    }
+
+    .offer-card {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+
+    .hero-text h1 {
+        font-size: 30px;
+    }
+
+    .hero-text p {
+        font-size: 14px;
+    }
+
+    .hero-image img {
+        width: 260px;
+    }
+
+    .offer-card img {
+        width: 220px;
+    }
+}

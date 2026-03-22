@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>About Page</title>
+{% endblock %}
+
+{% load static %}
+
+{% block content %}
+
+{% load static %}
+
+<!-- ================= CONTACT SECTION ================= -->
+<section class="contact-section">
+    <div class="contact-container">
+
+        <!-- HEADER -->
+        <div class="contact-header">
+            <h1>Contact Us</h1>
+            <p>We’re here to help you with laptops, orders, and support</p>
+        </div>
+
+        <hr>
+
+        <div class="contact-grid">
+
+            <!-- CONTACT INFO -->
+            <div class="contact-info">
+
+                <div class="info-card">
+                    <h3>📍 Address</h3>
+                    <p>Mumbai, Maharashtra<br>India</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>📧 Email</h3>
+                    <p>support@lapexpress.com</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>📞 Phone</h3>
+                    <p>+91 98765 43210</p>
+                </div>
+
+            </div>
+
+            <!-- CONTACT FORM -->
+            <div class="contact-form">
+                <h2>Send Us a Message</h2>
+
+                <form method="post">
+                    {% csrf_token %}
+
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <input type="text" name="subject" placeholder="Subject" required>
+                    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}

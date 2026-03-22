@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Services Page</title>
+{% endblock %}
+
+{% load static %}
+
+{% block content %}
+
+
+{% if blogs %}
+<!-- ================= BLOG HERO ================= -->
+<section class="blog-detail-hero">
+    <h1>{{blogs.title}}</h1>
+    <p>{{blogs.short_description}}</p>
+</section>
+
+<!-- ================= BLOG CONTENT ================= -->
+<section class="blog-detail-section">
+    <div class="blog-detail-container">
+
+        <img src="{{blogs.image.url}}" alt="Student Laptop">
+
+        <p class="blog-meta">
+            ✍ By LapExpress Team • 📅 January 2026 • ⏱ 5 min read
+        </p>
+
+        <p>
+            {{blogs.short_description}}
+        </p>
+
+        <div class="content">
+            {{blogs.content}}
+        </div>
+
+        <!-- CTA -->
+        <div class="blog-cta">
+            <a href="#" class="btn-read">View Laptops</a>
+        </div>
+        {% endif %}
+
+    </div>
+</section>
+
+{% endblock %}

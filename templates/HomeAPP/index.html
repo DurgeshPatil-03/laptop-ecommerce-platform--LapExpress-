@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+<title>Home Page</title>
+{% endblock %}
+
+{% block content %}
+
+<!-- ================= HERO SECTION ================= -->
+<section class="hero">
+    <div class="hero-content">
+
+        <div class="hero-text">
+            <h1>
+                WELCOME TO<br>
+                LAPEXPRESS<br>
+                LAPTOP STORE
+            </h1>
+            <p>
+                Your trusted destination for the latest laptops at the best prices
+            </p>
+            <a href="{% url 'products' %}">
+                <button class="btn btn-warning">SHOP NOW</button>
+            </a>
+        </div>
+
+        <div class="hero-image">
+            <img src="{% static 'images/laptop1.png' %}" alt="Laptop">
+        </div>
+
+    </div>
+</section>
+
+<!-- ================= OFFERS ================= -->
+<section class="offers">
+
+    <div class="offer-card">
+        <div class="offer-text">
+            <small>NEW YEAR SALE</small>
+            <h3>GET AN EXTRA<br>50% OFF</h3>
+            <a href="{% url 'deals' %}">SHOP NOW</a>
+        </div>
+        <img src="{% static 'images/laptop3.png' %}" alt="Laptop">
+    </div>
+
+    <div class="offer-card">
+        <div class="offer-text">
+            <small>BIRTHDAY SALE</small>
+            <h3>30% DISCOUNT<br>ON LAPTOPS</h3>
+            <a href="{% url 'deals' %}">VIEW COLLECTION</a>
+        </div>
+        <img src="{% static 'images/laptop2.png' %}" alt="Laptop">
+    </div>
+
+</section>
+
+{% endblock %}

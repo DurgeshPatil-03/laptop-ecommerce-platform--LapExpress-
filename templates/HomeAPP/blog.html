@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Services Page</title>
+{% endblock %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- ================= BLOG SECTION ================= -->
+<section class="blog-section">
+    <div class="blog-container">
+
+        <div class="blog-header">
+            <h1>Latest Blogs</h1>
+            <p>Insights, tips, and updates from the world of laptops and technology</p>
+        </div>
+
+        <hr>
+
+        <div class="blog-grid">
+
+            {% for blog in blogs %}
+            <!-- Blog Card -->
+            <div class="blog-card">
+                <img src="{{blog.image.url}}" alt="Blog Image">
+                <div class="blog-content">
+                    <span class="blog-date">March 2026</span>
+                    <h3>{{blog.title}}</h3>
+                    <p>
+                        {{blog.short_description}}
+                    </p>
+                    <a href="{% url 'fblog' blog.id %}" class="read-more">Read More →</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

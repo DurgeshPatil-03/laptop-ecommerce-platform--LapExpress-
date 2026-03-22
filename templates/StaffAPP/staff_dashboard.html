@@ -1,0 +1,133 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    {% block title %}
+    <title>Staff Dashboard | LapExpress</title>
+    {% endblock %}
+
+    <link rel="stylesheet" href="{% static 'StaffAPP/staff_dashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'StaffAPP/manage_products.css' %}">
+    <link rel="stylesheet" href="{% static 'StaffAPP/add_products.css' %}">
+    <link rel="stylesheet" href="{% static 'StaffAPP/customers.css' %}">
+    <link rel="stylesheet" href="{% static 'StaffAPP/blogs.css' %}">
+    <link rel="stylesheet" href="{% static 'StaffAPP/reports.css' %}">
+    <link rel="stylesheet" href="{% static 'StaffAPP/add_blog.css' %}">
+    <link rel="stylesheet" href="{% static 'StaffAPP/delete_confirmation.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+
+<!-- ================= SIDEBAR ================= -->
+
+<aside class="sidebar">
+    <h1 class="brand">Lap<span>Express</span></h1>
+
+    <div class="buttons">
+        <h4 class="text-center">! Hello {{user.username}}</h4>
+        <a href="{% url 'staff_dashboard' %}">
+            <button class="btn btn-primary">Dashboard</button>
+        </a>
+        <a href="{% url 'manage_products' %}">
+            <button class="btn btn-primary">Manage Products</button>
+        </a>
+        <a href="{% url 'customers' %}">
+            <button class="btn btn-primary">Customers</button>
+        </a>
+        <a href="{% url 'blogs' %}">
+            <button class="btn btn-primary">Blogs</button>
+        </a>
+        <a href="{% url 'reports' %}">
+            <button class="btn btn-primary">Reports</button>
+        </a>
+        <a href="{% url 'staff_logout' %}">
+            <button class="btn btn-primary">Logout</button>
+        </a>
+    </div>
+</aside>
+
+{% block content %}
+<!-- ================= MAIN ================= -->
+<main class="main-content">
+
+    <!-- Header -->
+    <header class="dashboard-header">
+        <h1>Staff Dashboard</h1>
+        <p>Welcome back, {{user.username}} 👋</p>
+    </header>
+
+    <!-- Stats Cards -->
+    <section class="stats">
+        <div class="stat-card">
+            <h3>Total Products</h3>
+            <p>{{count}}</p>
+        </div>
+        <div class="stat-card">
+            <h3>Total Stock</h3>
+            <p>{{stock}}</p>
+        </div>
+        <div class="stat-card">
+            <h3>Total Orders</h3>
+            <p>542</p>
+        </div>
+        <div class="stat-card">
+            <h3>Total Customers</h3>
+            <p>1,230</p>
+        </div>
+        <div class="stat-card">
+            <h3>Revenue</h3>
+            <p>₹12,45,000</p>
+        </div>
+    </section>
+
+    <!-- Recent Orders -->
+    <section class="table-section">
+        <h2>Recent Orders</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Customer</th>
+                    <th>Product</th>
+                    <th>Status</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>#1001</td>
+                    <td>Rahul</td>
+                    <td>HP Pavilion</td>
+                    <td class="status success">Delivered</td>
+                    <td>₹65,000</td>
+                </tr>
+                <tr>
+                    <td>#1002</td>
+                    <td>Anita</td>
+                    <td>MacBook Air</td>
+                    <td class="status pending">Pending</td>
+                    <td>₹89,999</td>
+                </tr>
+                <tr>
+                    <td>#1003</td>
+                    <td>Amit</td>
+                    <td>Gaming Laptop</td>
+                    <td class="status cancel">Cancelled</td>
+                    <td>₹92,000</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+</main>
+
+
+{% endblock %}
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+/* ================= CONTACT SECTION ================= */
+.contact-section {
+    padding: 40px 20px;
+    background: #f9fafb;
+}
+
+.contact-container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* ================= HEADER ================= */
+.contact-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.contact-header h1 {
+    font-size: 36px;
+    color: #1f2937;
+    margin-bottom: 10px;
+}
+
+.contact-header p {
+    color: #6b7280;
+    font-size: 15px;
+}
+
+/* ================= GRID ================= */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+/* ================= INFO ================= */
+.contact-info {
+    display: grid;
+    gap: 20px;
+}
+
+.info-card {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+}
+
+.info-card h3 {
+    color: #2563eb;
+    margin-bottom: 8px;
+}
+
+.info-card p {
+    color: #4b5563;
+    font-size: 14px;
+}
+
+/* ================= FORM ================= */
+.contact-form {
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 16px;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.1);
+}
+
+.contact-form h2 {
+    margin-bottom: 20px;
+    color: #1f2937;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    font-size: 14px;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
+/* ================= BUTTON ================= */
+.contact-form button {
+    width: 100%;
+    padding: 10px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background: #1e40af;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 520px) {
+    .contact-header h1 {
+        font-size: 28px;
+    }
+}

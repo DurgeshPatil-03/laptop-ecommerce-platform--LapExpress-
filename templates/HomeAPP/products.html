@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Services Page</title>
+{% endblock %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- ================= PRODUCTS SECTION ================= -->
+<section class="products-section">
+    <div class="products-container">
+
+        <!-- HEADER -->
+        <div class="products-header">
+            <h1>Our Laptops</h1>
+            <p>Explore powerful laptops designed for work, gaming, and everyday productivity</p>
+        </div>
+
+        <hr>
+
+        <!-- PRODUCTS GRID -->
+        <div class="products-grid">
+
+            {% for item in laptop %}
+            <div class="product-card">
+
+                <a href="{% url 'details' item.id %}">
+                    <div class="product-image">
+                        <img src="{{ item.image.url }}" alt="{{ item.model }}">
+                    </div>
+                </a>
+
+                <div class="product-content">
+                    <a href="{% url 'details' item.id %}">
+                        <h3>{{ item.brand }} {{ item.model }}</h3>
+                    </a>
+
+                    <p class="specs">
+                        {{ item.processor }} Processor, & {{item.graphics}} Graphics card {{ item.ram }}GB RAM, {{ item.rom }}GB SSD,
+                         {{item.display}} inch Display, {{item.os}} OS, {{item.category}}, 
+                    </p>
+
+                    <p>{{ item.review }}</p>
+
+                    <div class="product-footer">
+                        <span class="price">₹{{ item.price }}</span>
+
+                        <a href="{% url 'add_cart' item.id %}">
+                            <button class="btn btn-warning">Add to cart</button>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}
