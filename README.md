@@ -149,8 +149,8 @@ python manage.py runserver
 
 **Durgesh Shewale**
 
-* BE Computer Science (Final Year)
-* Aspiring Full Stack Developer
+* BE Computer Science Graduate
+* Full Stack Developer
 
 ---
 
